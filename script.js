@@ -123,5 +123,5 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-    window.location.href = "/vote";
+    window.location.href = "vote.html";
 }
