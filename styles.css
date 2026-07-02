@@ -1,0 +1,450 @@
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    background-color: #f9e3e3;
+    font-family: 'Arial', sans-serif;
+    flex-direction: column;
+  }
+
+  body.background-one {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(16px, 4vw, 40px) 16px;
+    box-sizing: border-box;
+    background-color: #56414c;
+  }
+
+  body.background-one::before,
+  body.background-one::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  body.background-one::before {
+    background-image: url("images/one.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.45;
+    filter: brightness(1.02) contrast(1.02) saturate(1.02);
+    z-index: 0;
+  }
+
+  body.background-one::after {
+    background:
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.36) 72%, rgba(0, 0, 0, 0.72) 100%),
+      radial-gradient(ellipse at left center, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0) 38%),
+      radial-gradient(ellipse at right center, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0) 38%);
+    opacity: 0.85;
+    z-index: 0;
+  }
+
+  body.background-one > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  body.background-one h1,
+  body.background-one h2,
+  body.background-one h5,
+  body.background-one a,
+  body.background-one button {
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.35),
+      0 0 14px rgba(150, 173, 255, 1),
+      0 0 28px rgba(120, 145, 255, 0.75),
+      0 0 44px rgba(78, 113, 222, 0.55);
+  }
+
+  .text-reveal {
+    animation: textReveal 0.5s ease-out both;
+  }
+
+  .main-question,
+  .yes-button,
+  .no-button,
+  #minnuvinay {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .main-question::after,
+  .yes-button::after,
+  .no-button::after,
+  #minnuvinay::after {
+    content: "";
+    position: absolute;
+    inset: -14px -18px;
+    pointer-events: none;
+    opacity: 0.55;
+    background:
+      radial-gradient(circle at 16% 24%, rgba(145, 195, 255, 0.75) 0 2px, transparent 3px),
+      radial-gradient(circle at 34% 16%, rgba(182, 214, 255, 0.72) 0 1.5px, transparent 3px),
+      radial-gradient(circle at 52% 28%, rgba(130, 171, 255, 0.7) 0 2px, transparent 3.5px),
+      radial-gradient(circle at 68% 18%, rgba(172, 201, 255, 0.72) 0 1.8px, transparent 3px),
+      radial-gradient(circle at 84% 34%, rgba(150, 193, 255, 0.68) 0 2px, transparent 3.5px);
+    filter: blur(0.8px) drop-shadow(0 0 10px rgba(136, 171, 255, 0.7));
+    animation: sparkleDrift 2.8s ease-in-out infinite;
+    mix-blend-mode: screen;
+    z-index: -1;
+  }
+
+  .yes-button::after,
+  .no-button::after {
+    inset: -10px -12px;
+    opacity: 0.4;
+  }
+
+  .main-question::after,
+  #minnuvinay::after {
+    opacity: 0.48;
+  }
+  
+  .container {
+    text-align: center;
+    width: min(100%, 980px);
+  }
+
+  #main-container {
+    position: relative;
+    width: min(94vw, 980px);
+    padding: clamp(24px, 4vw, 44px);
+    border-radius: 30px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    overflow: hidden;
+  }
+
+  #main-container::before {
+    content: none;
+  }
+
+  #main-container::after {
+    content: none;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    color: #d32f2f;
+  }
+
+  .main-question {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 12px;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.25;
+    font-weight: 800;
+    color: #96adff;
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.35),
+      0 0 14px rgba(150, 173, 255, 1),
+      0 0 28px rgba(120, 145, 255, 0.75),
+      0 0 44px rgba(78, 113, 222, 0.55);
+  }
+  
+  .buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: relative;
+  }
+  
+  .yes-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background: linear-gradient(180deg, #67d66f 0%, #2e9b43 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+    transition: font-size 0.25s ease, padding 0.25s ease, transform 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease;
+    max-width: 100%;
+  }
+  
+  .no-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #ff6d6d 0%, #c93030 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    max-width: 100%;
+  }
+  
+  .gif_container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  #main-container.final-stage-7 .buttons,
+  #main-container.final-stage-8 .buttons {
+    width: 100%;
+    min-height: 100vh;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: hidden;
+  }
+
+  #main-container.final-stage-7 .yes-button,
+  #main-container.final-stage-8 .yes-button {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-size: clamp(5rem, 22vw, 12rem);
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5);
+  }
+
+  #main-container.final-stage-7 .no-button,
+  #main-container.final-stage-8 .no-button {
+    display: none !important;
+  }
+
+  #main-container.final-stage-7,
+  #main-container.final-stage-8 {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #main-container.final-stage-9 {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #main-container.final-stage-9 .buttons {
+    width: 100%;
+    min-height: 100vh;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+
+  #main-container.final-stage-9 .yes-button {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-size: clamp(5rem, 22vw, 12rem);
+    padding: 0;
+    margin-right: 0;
+    border-radius: 0;
+    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.5);
+  }
+
+  #main-container.final-stage-9 .no-button {
+    display: none !important;
+  }
+
+  @keyframes textReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes sparkleDrift {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0.45;
+    }
+    50% {
+      transform: translateY(-3px) translateX(2px);
+      opacity: 0.78;
+    }
+  }
+
+  @media (max-width: 640px) {
+    body.background-one {
+      justify-content: center;
+      align-items: center;
+      padding: 14px 10px 20px;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    #main-container {
+      width: min(94vw, 520px);
+      padding: 22px 16px 18px;
+      border-radius: 24px;
+    }
+
+    .main-question {
+      max-width: 100%;
+      padding: 0 4px;
+      font-size: clamp(1.5rem, 6.6vw, 2.15rem);
+      line-height: 1.2;
+      text-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.35),
+        0 0 6px rgba(150, 173, 255, 0.95),
+        0 0 14px rgba(120, 145, 255, 0.68),
+        0 0 26px rgba(78, 113, 222, 0.36);
+    }
+
+    .buttons {
+      width: 100%;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .yes-button,
+    .no-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(72vw, 250px);
+      margin-right: 0;
+      font-size: 1.18em;
+      padding: 12px 18px;
+    }
+
+    .gif_container img {
+      margin-top: 14px;
+    }
+
+    #main-container.final-stage-7,
+    #main-container.final-stage-8 {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    #main-container.final-stage-7 .buttons,
+    #main-container.final-stage-7 .buttons {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    #main-container.final-stage-7 .yes-button,
+    #main-container.final-stage-8 .yes-button {
+      width: 100%;
+      height: 100vh;
+      font-size: clamp(5rem, 22vw, 12rem);
+      padding: 0;
+    }
+
+    #main-container.final-stage-9 {
+      min-height: 100vh;
+    }
+
+    #main-container.final-stage-9 .buttons {
+      min-height: 100vh;
+    }
+
+    #main-container.final-stage-9 .yes-button {
+      display: flex;
+      height: 100vh;
+      font-size: clamp(4rem, 24vw, 7rem);
+    }
+  }
+
+  @media (max-width: 420px) {
+    body.background-one::before {
+      background-size: cover;
+    }
+
+    #main-container {
+      width: 94vw;
+      padding: 20px 14px 16px;
+      border-radius: 22px;
+    }
+
+    .main-question {
+      font-size: clamp(1.35rem, 6.7vw, 1.9rem);
+    }
+
+    .yes-button,
+    .no-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(76vw, 240px);
+      font-size: 1.02em;
+    }
+
+    #main-container.final-stage-8 .buttons {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    #main-container.final-stage-9 .buttons {
+      min-height: 100vh;
+    }
+
+    #main-container.final-stage-9 .yes-button {
+      height: 100vh;
+    }
+  }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinay</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #minnuvinay:hover {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body class="background-one">
+    <div class="container" id="main-container">
+        <h1 id="question-text" class="main-question text-reveal">Do You Want to Vote Abhinay For the Position of PnP Secretary ?</h1>
+        <div class="buttons">
+            <button class="yes-button" id="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" id="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        
+    </div>
+    <!-- Add this audio element for the background song -->
+    <audio id="backgroundSong" src="songs/cha.mp3" loop></audio> <!-- Ensure the path to your song file is correct -->
+    <!-- Add this audio element for the new background song -->
+    <audio id="newBackgroundSong" src="songs/2.mp3" loop></audio> <!-- Ensure the path to your new song file is correct -->
+    <script src="script.js"></script>
+</body>
+</html>
