@@ -39,15 +39,6 @@ let noClickCount = 0;
 // Reference to the background song
 const backgroundSong = document.getElementById("backgroundSong");
 
-function restartAnimation(element, className) {
-    if (!element) {
-        return;
-    }
-    element.classList.remove(className);
-    void element.offsetWidth;
-    element.classList.add(className);
-}
-
 function handleNoClick() {
     const questionText = document.getElementById("question-text");
     const noButton = document.getElementById("no-button");
@@ -60,7 +51,6 @@ function handleNoClick() {
 
     if (noClickCount <= noClickQuestions.length && questionText) {
         questionText.textContent = noClickQuestions[noClickCount - 1];
-        restartAnimation(questionText, "text-reveal");
     }
 
     if (mainContainer) {
@@ -104,7 +94,6 @@ function handleNoClick() {
         noButton.style.width = "auto";
         noButton.style.height = "auto";
         noButton.style.padding = `${10 + Math.max(0, 4 - stage)}px ${18 + Math.max(0, 3 - stage)}px`;
-        restartAnimation(yesButton, "text-reveal");
     }
 
     if (noClickCount >= 7 && yesButton && noButton) {
@@ -120,7 +109,6 @@ function handleNoClick() {
         if (questionText) {
             questionText.style.display = "none";
         }
-        restartAnimation(yesButton, "text-reveal");
     }
 
     // Hide the <h5> element with the id 'minnuvinay'
@@ -135,5 +123,5 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-    window.location.href = "yes_page.html";
+    window.location.href = "/vote";
 }

@@ -22,7 +22,7 @@ body.yes-page::after {
 }
 
 body.yes-page::before {
-    background-image: url("images/two.heic");
+    background-image: url("images/two.webp");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -55,10 +55,6 @@ body.yes-page button {
       0 0 44px rgba(78, 113, 222, 0.55);
 }
 
-.text-reveal {
-    animation: textReveal 0.5s ease-out both;
-}
-
 .header_text,
 .yes-page-message h2 {
     position: relative;
@@ -79,7 +75,6 @@ body.yes-page button {
       radial-gradient(circle at 68% 18%, rgba(172, 201, 255, 0.72) 0 1.8px, transparent 3px),
       radial-gradient(circle at 84% 34%, rgba(150, 193, 255, 0.68) 0 2px, transparent 3.5px);
     filter: blur(0.8px) drop-shadow(0 0 8px rgba(136, 171, 255, 0.55));
-    animation: sparkleDrift 2.8s ease-in-out infinite;
     mix-blend-mode: screen;
     z-index: -1;
 }
@@ -205,31 +200,6 @@ body.yes-page button {
       0 0 40px rgba(179, 31, 31, 0.55);
 }
 
-@keyframes textReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(10px) scale(0.98);
-        filter: blur(2px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-    }
-}
-
-@keyframes sparkleDrift {
-    0%,
-    100% {
-        transform: translateY(0) translateX(0);
-        opacity: 0.45;
-    }
-    50% {
-        transform: translateY(-3px) translateX(2px);
-        opacity: 0.78;
-    }
-}
-
 @media (max-width: 640px) {
     body.yes-page {
         padding: 14px 10px 20px;
@@ -252,7 +222,12 @@ body.yes-page button {
     }
 
     .vote-line {
-        font-size: clamp(1.08rem, 4vw, 1.38rem);
+        font-size: clamp(1.2rem, 4.8vw, 1.6rem);
+        line-height: 1.15;
+    }
+
+    .vote-name {
+        font-size: 1.08em;
     }
 }
 
@@ -277,6 +252,11 @@ body.yes-page button {
     }
 
     .vote-line {
-        font-size: clamp(0.98rem, 4vw, 1.18rem);
+        font-size: clamp(1.12rem, 5vw, 1.42rem);
+        line-height: 1.12;
+    }
+
+    .vote-name {
+        font-size: 1.1em;
     }
 }
